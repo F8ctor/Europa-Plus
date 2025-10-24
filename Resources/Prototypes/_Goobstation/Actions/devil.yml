@@ -64,7 +64,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    useDelay: 60
+    useDelay: 70
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Actions/devil.rsi
@@ -121,7 +121,7 @@
   components:
   - type: Action
     itemIconStyle: NoItem
-    useDelay: 300
+    useDelay: 250
     checkCanInteract: false
     checkConsciousness: false
     icon:
