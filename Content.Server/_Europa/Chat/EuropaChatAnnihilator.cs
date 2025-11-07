@@ -27,7 +27,14 @@ public sealed class EuropaChatAnnihilator
 
     private static readonly List<string> IcShit = new()
     {
-        "набег",
+        " набег ",
+        " набегай ",
+        " набегая",
+        " набеги ",
+        " набегаю ",
+        " набегаем ",
+        " набегал ",
+        " набегать ",
         "nabeg",
         "raid",
         "дискорд",
