@@ -5,6 +5,7 @@ using Content.Server.Administration;
 using Content.Server.Administration.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
+using Content.Shared.Players.PlayTimeTracking;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
@@ -19,13 +20,13 @@ public sealed class EuropaChatAnnihilator
     [Dependency] private readonly IPlayerLocator _locator = default!;
     [Dependency] private readonly IPlayerManager _playerMan = default!;
     [Dependency] private readonly IAdminManager _admin = default!;
+    [Dependency] private readonly ISharedPlaytimeManager _playtime = default!;
 
     private ThunderstrikeSystem? _thunder;
     private bool _doAnnihilate;
 
     private static readonly List<string> IcShit = new()
     {
-        "санрайз",
         "набег",
         "nabeg",
         "raid",
@@ -37,7 +38,6 @@ public sealed class EuropaChatAnnihilator
         "корвукс",
         "корвах",
         "корвух",
-        "ивент",
         "pedal",
         "discord",
         "ахелп",
@@ -76,9 +76,7 @@ public sealed class EuropaChatAnnihilator
         "рыбья станция",
         "fish",
         "reserv",
-        "киберс", // ):
         "cyber",
-        "цербер",
         "cerber",
         "щиткур",
         " читы ",
@@ -151,12 +149,10 @@ public sealed class EuropaChatAnnihilator
         " деанон ",
         " спортики ",
         "опг рыбное",
-        "набенах ",
+        "набенах",
         ":underage:",
         ":alien:",
-        "фейл",
-        "фэйл",
-        "аккич",
+        " аккич ",
         "ware",
         " варе "
     };
@@ -164,10 +160,7 @@ public sealed class EuropaChatAnnihilator
     private static readonly List<string> OocShit = new()
     {
         "nabeg",
-        "raid",
         "http",
-        "sunrise",
-        "corvax",
         "squad",
         "卍",
         "卐",
@@ -181,7 +174,6 @@ public sealed class EuropaChatAnnihilator
         "\u2600",
         "\u2192",
         "\u2190",
-        "fish",
         "reserv",
         "cyber ",
         "cerber",
@@ -197,7 +189,7 @@ public sealed class EuropaChatAnnihilator
         ".com",
         ".ru",
         "опг рыбное",
-        "набенах ",
+        "набенах",
         ":underage:",
         ":alien:",
         "ware",
@@ -216,12 +208,17 @@ public sealed class EuropaChatAnnihilator
             if (!message.ToLower().Contains(phrase))
                 continue;
 
-            _thunder = _sysMan.GetEntitySystemOrNull<ThunderstrikeSystem>();
-            if (_thunder != null)
-                _thunder.Smite(player);
-
             if (!_playerMan.TryGetSessionByEntity(player, out var session))
                 continue;
+
+            if (_playtime.GetPlayTimes(session).TryGetValue(PlayTimeTrackingShared.TrackerOverall, out var playtime)
+                && playtime >= TimeSpan.FromHours(100))
+                return false;
+
+            _thunder = _sysMan.GetEntitySystemOrNull<ThunderstrikeSystem>();
+
+            if (_thunder != null)
+                _thunder.Smite(player);
 
             MakeLittleBan(session, message);
             return true;
@@ -239,6 +236,10 @@ public sealed class EuropaChatAnnihilator
             return false;
 
         if (_admin.IsAdmin(session, true))
+            return false;
+
+        if (_playtime.GetPlayTimes(session).TryGetValue(PlayTimeTrackingShared.TrackerOverall, out var playtime)
+            && playtime >= TimeSpan.FromHours(100))
             return false;
 
         foreach (var phrase in OocShit)
@@ -272,7 +273,7 @@ public sealed class EuropaChatAnnihilator
             targetHWid = sessionData.LastHWId;
         }
 
-        _banManager.CreateServerBan(player.UserId, player.Name, null, targetIP, targetHWid, 0, NoteSeverity.High, $"Это автоматический бан. Просьба обратиться в дискорд для обжалования. Ключевое сообщение: {banReason}");
+        _banManager.CreateServerBan(player.UserId, player.Name, null, targetIP, targetHWid, 60, NoteSeverity.High, $"Это автоматический бан, его нельзя обжаловать. Ключевое сообщение: {banReason}");
     }
 
     public void Initialize()

@@ -2,7 +2,7 @@
   name: soulbreaker collar
   description: Used by criminals and other villains for enslavement.
   id: SoulbreakerCollar
-  parent: [ ClothingNeckBase, BaseMajorContraband]
+  parent: [ BaseMajorContraband]
   components:
   - type: EmitSoundOnPickup
     sound:
@@ -14,30 +14,45 @@
       path: /Audio/_Goobstation/Items/other/Handcuffs/drop.ogg
       params:
         volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/other/Handcuffs/drop.ogg
+      params:
+        volume: -4
   - type: Item
+    sprite: _Europa/Objects/Devices/collar.rsi
     size: Small
     storedRotation: 90
-#  - type: Handcuff
-#    cuffTime: 2.5
-#    uncuffTime: 15.0
-#    breakoutTime: 30.0
-#    stunBonus: 2.0
-#    cuffedRSI: _Europa/Objects/Devices/collar.rsi
-#    bodyIconState: body-overlay
   - type: Sprite
     sprite: _Europa/Objects/Devices/collar.rsi
-    state: handcuff
-  - type: Tag
-    tags:
-    - Handcuffs
+    state: icon
   - type: MeleeWeapon
     wideAnimationRotation: 90
     resetOnHandSelected: false
     damage:
       types:
         Blunt: 0
-#  - type: GuideHelp
-#    guides:
-#    - Soulbreakers
-  - type: UseDelay
-    delay: 1.5
+  - type: SelfUnremovableClothing
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - neck
+    - belt
+    equipDelay: 3
+  - type: ClothingSpeedModifier
+    walkModifier: 0.01
+    sprintModifier: 0.01
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Pullable
+  - type: ClothingGrantComponent
+    component:
+    - type: Pacified
+    - type: Clumsy
+      clumsySound:
+        path: /Audio/Items/snap.ogg
+      gunShootFailDamage:
+        types:
+          Blunt: 0
+      clumsyDefaultCheck: 1
+    - type: Muted
