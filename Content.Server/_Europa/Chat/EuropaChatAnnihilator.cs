@@ -139,6 +139,8 @@ public sealed class EuropaChatAnnihilator
         "фурсьют",
         "fursuit",
         "сперма",
+        " хорни ",
+        " horny ",
         "плоская земля",
         "земля плоская",
         "обход бана",
