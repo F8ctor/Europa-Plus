@@ -16,14 +16,14 @@ public abstract class SharedIslamicTrancerSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<IslamicTrancerComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<IslamicTrancerComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<IslamicTrancerComponent, ComponentRemove>(OnComponentRemoved);
 
 
         SubscribeLocalEvent<IslamicTrancerComponent, PraiseAllahEvent>(OnPraiseAllah);
     }
 
-    private void OnComponentInit(EntityUid uid, IslamicTrancerComponent component, ComponentInit args)
+    private void OnMapInit(EntityUid uid, IslamicTrancerComponent component, MapInitEvent args)
     {
         _actionsSystem.AddAction(uid, ref component.AllahActionEntity, component.AllahAction);
     }
@@ -43,7 +43,7 @@ public abstract class SharedIslamicTrancerSystem : EntitySystem
             _audioSystem.PlayPvs(component.PraiseAllahSound, args.Performer);
         }
 
-        _chatSystem.TrySendInGameICMessage(uid, "praises Allah!", InGameICChatType.Emote, false);
+        _chatSystem.TrySendInGameICMessage(uid, "восхваляет Аллаха!", InGameICChatType.Emote, false);
 
         args.Handled = true;
     }

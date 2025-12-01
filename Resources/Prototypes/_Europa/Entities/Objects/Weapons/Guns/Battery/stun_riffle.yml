@@ -19,7 +19,7 @@
       shader: unshaded
   - type: Gun
     selectedMode: FullAuto
-    fireRate: 4
+    fireRate: 8
     availableModes:
     - SemiAuto
     - FullAuto
@@ -29,6 +29,9 @@
     proto: StunRiffleDisablerBolt
     fireCost: 50
   - type: Appearance
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 500
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 100

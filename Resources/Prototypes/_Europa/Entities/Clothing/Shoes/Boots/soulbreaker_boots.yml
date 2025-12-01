@@ -14,6 +14,9 @@
       collection: FootstepCatwalk
       params:
         volume: -25
+  - type: GuideHelp
+    guides:
+    - SoulbreakersGuide
 
 - type: entity
   parent: [ClothingShoesBase, BaseToggleClothing, BaseJetpack, BaseMajorContraband]
@@ -39,9 +42,6 @@
   - type: ToggleClothingPrefix
     prefixOn: on
   - type: Magboots
-  - type: ClothingSpeedModifier
-    walkModifier: 1.3
-    sprintModifier: 1.2
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -60,3 +60,6 @@
   - type: Item
     sprite: null
     size: Normal
+  - type: GuideHelp
+    guides:
+    - SoulbreakersGuide

@@ -1,0 +1,38 @@
+- type: entity
+  parent: [ClothingEyesBase, BaseBlueShieldContraband]
+  id: ClothingEyesVisorBSO
+  name: blueshield officer visor
+  description: Visor with a medical, job and diagnostic hud.
+  components:
+  - type: Sprite
+    sprite: _Europa/Clothing/Eyes/bluevisor.rsi
+  - type: Clothing
+    sprite: _Europa/Clothing/Eyes/bluevisor.rsi
+  - type: ShowJobIcons
+  - type: ShowMindShieldIcons
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - BiologicalSoulbreaker
+    - Inorganic
+    - Silicon
+    - SiliconRadiation
+  - type: Tag
+    tags:
+    - Sunglasses
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingEyesVisorBSO
+  id: ClothingEyesGlassesBlueShield
+  name: officer "Blueshield" glasses
+  description: Improved security glasses, in blue coloring and with a built-in health scanner.
+  components:
+  - type: Sprite
+    sprite: _Backmen/Clothing/Eyes/Glasses/blueglasses.rsi
+  - type: Clothing
+    sprite: _Backmen/Clothing/Eyes/Glasses/blueglasses.rsi

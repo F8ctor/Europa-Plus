@@ -139,7 +139,8 @@ public sealed class DoAfterOverlay : Overlay
                 if (doAfter.Args.Hidden || isInContainer)
                 {
                     // Goobstation - Show doAfter progress bar to another entity
-                    if (uid != localEnt && localEnt != doAfter.Args.ShowTo)
+                    var showTo = doAfter.Args.ShowTo ?? uid;
+                    if (localEnt != showTo)
                         continue;
 
                     // Hints to the local player that this do-after is not visible to other players.
@@ -156,13 +157,17 @@ public sealed class DoAfterOverlay : Overlay
                     yOffset / scale + offset / EyeManager.PixelsPerMeter * scale);
 
                 // Europa-Start
-                var cogPos = new Vector2(position.X + _barTexture.Width / scale / EyeManager.PixelsPerMeter, position.Y + _barTexture.Height * 2 / scale) / EyeManager.PixelsPerMeter;
-                var cogTexture = _entManager.System<SpriteSystem>().GetFrame(_cogTexture, curTime);
+                if (!doAfter.Args.Hidden && !isInContainer)
+                {
+                    var cogPos = new Vector2(position.X + _barTexture.Width / scale / EyeManager.PixelsPerMeter, position.Y + _barTexture.Height * 2 / scale) / EyeManager.PixelsPerMeter;
+                    var cogTexture = _entManager.System<SpriteSystem>().GetFrame(_cogTexture, curTime);
+                    handle.DrawTexture(cogTexture, cogPos);
+                }
                 // Europa-End
 
                 // Draw the underlying bar texture
                 handle.DrawTexture(_barTexture, position);
-                handle.DrawTexture(cogTexture, cogPos); // Europa
+
 
                 Color color;
                 float elapsedRatio;

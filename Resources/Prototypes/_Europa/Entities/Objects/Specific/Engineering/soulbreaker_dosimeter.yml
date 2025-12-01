@@ -1,0 +1,27 @@
+- type: entity
+  parent: [ BaseItem, BaseMajorContraband ]
+  id: SoulbreakerDosimeter
+  name: soulbreaker dosimeter
+  description: A handheld device used for detecting and measuring radiation pulses.
+  components:
+  - type: Sprite
+    sprite: _Europa/Objects/Specific/Engineering/soulbreaker_doismeter.rsi
+    state: icon
+  - type: Item
+    sprite: _Europa/Objects/Specific/Engineering/soulbreaker_doismeter.rsi
+  - type: Geiger
+    showControl: true
+    showExamine: true
+    broadcastAudio: true
+  - type: Tag
+    tags:
+    - GeigerCounter
+  - type: Clothing
+    quickEquip: true
+    slots:
+    - neck
+    - belt
+    - idcard
+  - type: GuideHelp
+    guides:
+    - SoulbreakersGuide

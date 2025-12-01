@@ -1,0 +1,43 @@
+- type: entity
+  parent: ClothingHeadHatBeretBlueshield
+  id: ClothingHeadHatBlackBeretBlueShield
+  name: officer "Blueshield" black beret
+  description: The officers' “Blueshield” black beret, instills a sense of tighter security.
+  components:
+  - type: Sprite
+    sprite: _Backmen/Clothing/Head/Hats/blueberet.rsi
+  - type: Clothing
+    sprite: _Backmen/Clothing/Head/Hats/blueberet.rsi
+
+- type: entity
+  parent: ClothingHeadHatBlackBeretBlueShield
+  id: ClothingHeadHatLightBeretBlueShield
+  name: officer "Blueshield" light beret
+  description: The officers' “Blueshield” light beret, nice and beautiful.
+  components:
+  - type: Sprite
+    sprite: _Backmen/Clothing/Head/Hats/lightblueberet.rsi
+  - type: Clothing
+    sprite: _Backmen/Clothing/Head/Hats/lightblueberet.rsi
+
+- type: entity
+  parent: ClothingHeadHatBeretBlueshield
+  id: ClothingHeadHatBlueShieldCap
+  name: Blueshield cap
+  description: Although it is old, it has undergone modernization and reinforcement.
+  components:
+  - type: Sprite
+    sprite: _Backmen/Clothing/Head/Hats/bluecap.rsi
+  - type: Clothing
+    sprite: _Backmen/Clothing/Head/Hats/bluecap.rsi
+
+- type: entity
+  parent: ClothingHeadHatBeretBlueshield
+  id: BackmenClothingHeadHatUshankaBlueShield
+  name: Blueshield ushanka
+  description: A rather old ushanka from the SSSP fleet, modified to suit the needs of Blue Shield officers.
+  components:
+  - type: Sprite
+    sprite: _Backmen/Clothing/Head/Hats/blueushanka.rsi
+  - type: Clothing
+    sprite: _Backmen/Clothing/Head/Hats/blueushanka.rsi

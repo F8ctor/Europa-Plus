@@ -13,10 +13,16 @@
     fiberColor: fibers-pitch-black
   - type: ClothingGrantComponent
     component:
+    - type: Uncuffable
     - type: Prying
       pryPowered: true
       force: true
       speedModifier: 6
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 15
+        Caustic: 15
   - type: MeleeWeapon
     attackRate: 2
     damage:
@@ -31,3 +37,6 @@
     damage: 30
   - type: Tag
     tags: []
+  - type: GuideHelp
+    guides:
+    - SoulbreakersGuide

@@ -1,0 +1,85 @@
+- type: entity
+  id: SoulbreakerRustWall
+  name: soulbreaker rust wall
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Tag
+    tags:
+      - Wall
+      - Structure
+  - type: IsRoof
+  - type: Sprite
+    sprite: _Europa/Structures/Walls/rust_wall.rsi
+    state: full
+  - type: Icon
+    sprite: _Europa/Structures/Walls/rust_wall.rsi
+    state: full
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 9999
+  - type: Airtight
+  - type: BlockWeather
+  - type: SunShadowCast
+  - type: ExaminableDamage
+    messages: WindowMessages
+  - type: IconSmooth
+    key: walls
+    base: rust_wall
+  - type: RadiationBlocker
+    resistance: 50
+  - type: RCDDeconstructable
+    deconstructable: false
+  - type: Structure
+  - type: Pullable
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Occluder

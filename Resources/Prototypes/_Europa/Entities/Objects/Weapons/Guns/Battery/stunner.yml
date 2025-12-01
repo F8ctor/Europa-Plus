@@ -1,0 +1,51 @@
+- type: entity
+  parent: [ BaseWeaponBattery, BaseMajorContraband ]
+  id: SoulbreakerStunner
+  name: stunner
+  description: They said the result would be non-lethal. Were they wrong?
+  components:
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - Taser
+  - type: Sprite
+    sprite: _Europa/Objects/Weapons/Guns/Battery/stunner.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
+    - state: icon-unshaded
+      map: [ "enum.GunVisualLayers.BaseUnshaded" ]
+      shader: unshaded
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: Gun
+    selectedMode: SemiAuto
+    fireRate: 1
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: StunRiffleDisablerBolt
+    fireCost: 50
+  - type: Appearance
+  - type: Battery
+    maxCharge: 250
+    startingCharge: 250
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 10
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 10
+    angle: 0
+    wideAnimationRotation: 90
+    soundHit:
+      collection: MetalThud

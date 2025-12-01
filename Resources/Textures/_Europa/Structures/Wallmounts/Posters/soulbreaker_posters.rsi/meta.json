@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "license": "Closed Party",
+  "copyright": "RandySandy",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "mag1"
+    },
+    {
+      "name": "mag2"
+    },
+    {
+      "name": "mag3"
+    },
+    {
+      "name": "postersb"
+    },
+    {
+      "name": "postersb2"
+    },
+    {
+      "name": "a",
+      "delays": [
+        [
+          1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "b",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "c"
+    },
+    {
+      "name": "mosaic"
+    },
+    {
+      "name": "mosaic_ov",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    }
+  ]
+}

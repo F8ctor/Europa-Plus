@@ -206283,7 +206283,7 @@ entities:
         - Left: Forward
         - Right: Reverse
         - Middle: Off
-- proto: UniqueLockerBlueshieldOfficerFilled
+- proto: PaperWrittenBSOReplaseLocker # Europa edit / BSO rework
   entities:
   - uid: 18072
     components:

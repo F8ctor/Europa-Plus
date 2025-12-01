@@ -1,0 +1,33 @@
+- type: language
+  id: Soulbreakers
+  speech:
+    fontSize: 13
+    fontId: Eris
+    boldFontId: Eris
+    obfuscatedFontId: BulanRamadhan
+    color: "#d97102"
+    obfuscationSymbol: "-"
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 3
+    replacement:
+    - gae
+    - bnty
+    - alfi
+    - dpvb
+    - allah
+    - day
+    - cnyt
+    - pekrt
+    - amvt
+    - ptrirm
+    - amrf
+    - qkwko
+    - vcovb
+    - ltkr
+    - vdsv
+    - mbvjcu
+    - sujcn
+    - mcnrfv
+    - anxnj
